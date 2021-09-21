@@ -1,1 +1,1 @@
-web: gunicorn daraja.wsgi
+web: gunicorn daraja.wsgi:application --log-file - --log-level debug
