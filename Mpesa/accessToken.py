@@ -1,6 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 from credentials import keys
+from django.http import HttpResponse
 
 
 def generateAccessToken():
@@ -20,6 +21,6 @@ def generateAccessToken():
 
     my_access_token = json_response["access_token"]
 
-    return my_access_token
+    return HttpResponse(my_access_token)
 
-generateAccessToken()
+# generateAccessToken()

@@ -5,3 +5,4 @@ consumer_key = "6ggTdx2QLluYz1Zj5mGDOlNVFnOblDaD"
 consumer_secret = "OGUsnBu5K9kWYyGx"
 shortcode = "603021"
 test_msisdn = "254716431039"
+SAFARICOM_API: 'https://sandbox.safaricom.co.ke'
