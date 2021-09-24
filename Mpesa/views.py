@@ -254,6 +254,5 @@ def TestConfirmation(request):
         "ResultDesc": "Accepted"
     }
 
-    res = request.data.get(body)
     return JsonResponse(dict(context))
     # return Response({"ResultCode": 0,"ResultDesc": "Accepted"})
