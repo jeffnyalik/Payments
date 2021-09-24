@@ -234,3 +234,26 @@ class C2BConfirmation(APIView):
         res = request.data
         return Response(res, status=HTTP_200_OK)
 
+
+@csrf_exempt
+def TestValidation(request):
+    mpesa_body =request.body.decode('utf-8')
+    print(mpesa_body, "This is request data in validation")
+    context = {
+        "ResultCode": 0,
+        "ResultDesc": "Accepted"
+    }
+    return JsonResponse(dict(context))
+    # return Response({"ResultCode": 0, "ResultDesc": "Accepted"})
+
+
+@csrf_exempt
+def TestConfirmation(request):
+    mpesa_body =request.body.decode('utf-8')
+    print(mpesa_body, "This is request data in confirmation")
+    context = {
+        "ResultCode": 0,
+        "ResultDesc": "Accepted"
+    }
+    return JsonResponse(dict(context))
+    # return Response({"ResultCode": 0,"ResultDesc": "Accepted"})
