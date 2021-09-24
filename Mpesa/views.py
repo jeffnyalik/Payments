@@ -17,10 +17,6 @@ from .customerPaybill import registerUrl, simulateTransaction
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-
-# Create your views here.
-
-
 class PaymentTranactionView(ListCreateAPIView):
     def post(self, request):
         return HttpResponse("OK", status=200)
@@ -219,8 +215,9 @@ class SimulateTransactionApiView(APIView):
     permission_classes = [AllowAny, ]
 
     def post(self, request, format=None):
-        response = simulateTransaction()
-        return Response(response, status=HTTP_200_OK)
+        return 'something'
+        # response = simulateTransaction()
+        # return Response(response, status=HTTP_200_OK)
 
 
 class C2BValidation(APIView):
@@ -257,5 +254,7 @@ def TestConfirmation(request):
         "ResultCode": 0,
         "ResultDesc": "Accepted"
     }
+
+    res = request.data.get(body)
     return JsonResponse(dict(context))
     # return Response({"ResultCode": 0,"ResultDesc": "Accepted"})
