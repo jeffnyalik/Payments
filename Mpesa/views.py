@@ -14,6 +14,7 @@ from .models import PaymentTransaction
 from django.http import JsonResponse
 from rest_framework.permissions import AllowAny
 from .customerPaybill import registerUrl, simulateTransaction
+from django.http import JsonResponse
 
 
 # Create your views here.
