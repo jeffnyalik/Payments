@@ -15,6 +15,7 @@ from django.http import JsonResponse
 from rest_framework.permissions import AllowAny
 from .customerPaybill import registerUrl, simulateTransaction
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -236,7 +237,7 @@ class C2BConfirmation(APIView):
         return Response(res, status=HTTP_200_OK)
 
 
-
+@csrf_exempt
 def TestValidation(request):
     mpesa_body =request.body.decode('utf-8')
     print(mpesa_body, "This is request data in validation")
@@ -248,7 +249,7 @@ def TestValidation(request):
     # return Response({"ResultCode": 0, "ResultDesc": "Accepted"})
 
 
-
+@csrf_exempt
 def TestConfirmation(request):
     mpesa_body =request.body.decode('utf-8')
     print(mpesa_body, "This is request data in confirmation")
