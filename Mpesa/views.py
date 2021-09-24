@@ -16,6 +16,11 @@ from rest_framework.permissions import AllowAny
 from .customerPaybill import registerUrl, simulateTransaction
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from .customerPaybill import getToken
+from credentials import keys
+import requests
+from django.http import HttpResponse
+
 
 class PaymentTranactionView(ListCreateAPIView):
     def post(self, request):

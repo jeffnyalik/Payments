@@ -43,3 +43,19 @@ class Wallet(BaseModel):
 
     def __str__(self):
         return self.phone_number
+
+
+class PayBillPayment(models.Model):
+    TransactionType = models.CharField(max_length=30)
+    TransID = models.CharField(max_length=255)
+    TransAmount = models.DecimalField(decimal_places=2, max_digits=10)
+    BusinessShortCode  = models.CharField(max_length=50)
+    BillRefNumber = models.CharField(max_length=50)
+    InvoiceNumber  = models.CharField(max_length=50)
+    OrgAccountBalance = models.CharField(max_length=50)
+    ThirdPartyTransID  = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50)
+    firstName = models.CharField(max_length=50)
+    middleName  = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+           
