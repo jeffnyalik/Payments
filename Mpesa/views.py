@@ -241,7 +241,7 @@ class C2BConfirmationApiView(APIView):
     @csrf_exempt
     def post(self, request, format=None):
         data = request.data
-        print("Data has been printed")
+        print(data, "Data has been printed")
         return Response(data, status.HTTP_201_CREATED)
 
 
