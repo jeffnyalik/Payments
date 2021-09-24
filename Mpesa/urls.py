@@ -6,7 +6,7 @@ ConfirmView,
 CheckTransactionOnline,
 RegisterApiView,
 SimulateTransactionApiView, 
-C2BConfirmation,
+# C2BConfirmation,
 C2BValidation,
 )
 
