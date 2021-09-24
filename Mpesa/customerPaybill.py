@@ -34,7 +34,7 @@ def registerUrl():
     request = {
         "ShortCode": keys.shortcode,
         "ResponseType": "Completed",
-        "ConfirmationURL": "https://mwando.herokuapp.com/api/c2b-comfirmation/",
+        "ConfirmationURL": "https://mwando.herokuapp.com/api/c2b-confirmation/",
         "ValidationURL":   "https://mwando.herokuapp.com/api/c2b-validation/",
     }
 

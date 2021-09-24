@@ -22,6 +22,6 @@ urlpatterns = [
     path('simulate-transactions/', SimulateTransactionApiView.as_view(), name='simulate-transactions'),
 
     #C2b validation and confirmation urls
-    path('c2b-validation', C2BValidation.as_view(), name='register-urls'),
-    path('c2b-confirmation', C2BConfirmation.as_view(), name='simulate-transactions'),
+    path('c2b-validation', C2BValidation.as_view(), name='c2b-validation'),
+    path('c2b-confirmation', C2BConfirmation.as_view(), name='c2b-confirmation'),
 ]
