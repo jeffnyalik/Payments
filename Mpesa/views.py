@@ -215,7 +215,7 @@ class SimulateTransactionApiView(APIView):
     permission_classes = [AllowAny, ]
 
     def post(self, request, format=None):
-        return 'something'
+        return Response('something')
         # response = simulateTransaction()
         # return Response(response, status=HTTP_200_OK)
 
