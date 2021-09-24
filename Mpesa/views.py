@@ -239,7 +239,7 @@ class C2BConfirmationApiView(APIView):
     serializer_class = PayBillSerialzer
     permission_classes = [AllowAny, ]
     
-    def create(self, request, format=None):
+    def post(self, request, format=None):
         print(request.data)
         res = request.data
 
