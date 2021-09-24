@@ -23,6 +23,7 @@ from django.http import HttpResponse
 from rest_framework.generics import CreateAPIView
 from .models import PayBillPayment
 from Mpesa.serializers import PayBillSerialzer
+from rest_framework import status
 
 
 class PaymentTranactionView(ListCreateAPIView):
@@ -235,20 +236,18 @@ class C2BValidation(APIView):
         return Response(data)
 
 class C2BConfirmationApiView(APIView):
-    queryset = PayBillPayment.objects.all()
-    serializer_class = PayBillSerialzer
     permission_classes = [AllowAny, ]
-    
-    def post(self, request, format=None):
-        print(request.data)
-        res = request.data
 
-        return Response(res, status=HTTP_200_OK)
+    @csrf_exempt
+    def post(self, request, format=None):
+        data = request.data
+        print(data, "Data has been printed")
+        return Response(data, status.HTTP_201_CREATED)
 
 
 @csrf_exempt
 def TestValidation(request):
-    mpesa_body =request.body.decode('utf-8')
+    mpesa_body = request.body.decode('utf-8')
     print(mpesa_body, "This is request data in validation")
     context = {
         "ResultCode": 0,
@@ -260,11 +259,11 @@ def TestValidation(request):
 
 @csrf_exempt
 def TestConfirmation(request):
-    mpesa_body =request.body.decode('utf-8')
+    mpesa_body = request.body.decode('utf-8')
     print(mpesa_body, "This is request data in confirmation")
     context = {
         "ResultCode": 0,
-        "ResultDesc": "Accepted"
+        "ResultDesc": "Accepted",
     }
 
     return JsonResponse(dict(context))
