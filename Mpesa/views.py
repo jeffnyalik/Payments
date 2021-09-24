@@ -20,6 +20,9 @@ from .customerPaybill import getToken
 from credentials import keys
 import requests
 from django.http import HttpResponse
+from rest_framework.generics import CreateAPIView
+from .models import PayBillPayment
+from Mpesa.serializers import PayBillSerialzer
 
 
 class PaymentTranactionView(ListCreateAPIView):
@@ -231,10 +234,15 @@ class C2BValidation(APIView):
         data = request.data
         return Response(data)
 
-class C2BConfirmation(APIView):
+class C2BConfirmationApiView(APIView):
+    queryset = PayBillPayment.objects.all()
+    serializer_class = PayBillSerialzer
     permission_classes = [AllowAny, ]
-    def get(self, request, format=None):
+    
+    def create(self, request, format=None):
+        print(request.data)
         res = request.data
+
         return Response(res, status=HTTP_200_OK)
 
 
