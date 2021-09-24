@@ -50,7 +50,7 @@ def stkPush(phone_number, amount, orderId=0, transaction_id=None, short_code=Non
         "PartyA": phone_number,
         "PartyB": code,
         "PhoneNumber": phone_number,
-        "CallBackURL": "https://africawatalii.com/api/payments/lnm/",
+        "CallBackURL": "https://mwando.herokuapp.com/api/payments/lnm/",
         "AccountReference": code,
         "TransactionDesc": "Payment for {}".format(phone_number)
     }

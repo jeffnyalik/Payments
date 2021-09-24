@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from .models import PaymentTransaction
 from django.http import JsonResponse
 from rest_framework.permissions import AllowAny
+from .customerPaybill import registerUrl, simulateTransaction, c2bValidatationTask
 
 
 # Create your views here.
@@ -187,6 +188,7 @@ class ValidateView(APIView):
         # save the data
         request_data = request.data
 
+
         # Perform your processing here e.g. print it out...
         print("validate data" + request_data)
 
@@ -201,3 +203,34 @@ class ValidateView(APIView):
 
         # Send the response back to the server
         return Response(message, status=HTTP_200_OK)
+
+
+class RegisterApiView(APIView):
+    permission_classes =  [AllowAny, ]
+
+    def get(self, request, format=None):
+        res = registerUrl()
+        return Response(res, status=HTTP_200_OK)
+
+
+class SimulateTransactionApiView(APIView):
+    permission_classes = [AllowAny, ]
+
+    def post(self, request, format=None):
+        response = simulateTransaction()
+        return Response(response, status=HTTP_200_OK)
+
+
+class C2BValidation(APIView):
+    permission_classes = [AllowAny, ]
+    
+    def post(self, request, format=None):
+        data = request.data
+        return Response(data)
+
+class C2BConfirmation(APIView):
+    permission_classes = [AllowAny, ]
+    def get(self, request, format=None):
+        res = request.data
+        return Response(res, status=HTTP_200_OK)
+

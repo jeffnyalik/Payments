@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-#b1*4sz(4(5wtoca6*rviw-gw%$6^$=ilxvhmm$0z%_kqk$0v%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mpesaapp.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://mwando.herokuapp.com/']
 
 
 # Application definition
@@ -168,3 +168,4 @@ import django_heroku
 
 # Activating django heroku
 django_heroku.settings(locals())
+
