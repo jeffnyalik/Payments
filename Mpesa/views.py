@@ -237,15 +237,23 @@ class C2BValidation(APIView):
 
 class C2BConfirmationApiView(APIView):
     permission_classes = [AllowAny, ]
+    queryset = PayBillPayment.objects.all()
+    serializer_class = PayBillSerialzer
 
-    @csrf_exempt
-    def post(self, request, format=None):
-        serializer = PayBillSerialzer(data=request.data)
-        print(serializer)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def create(self, request):
+        print(request.data, 'This request comes from the confirmation')
+        return Response({'ResultDesc': 0})
+
+
+    # @csrf_exempt
+    # def post(self, request, format=None):
+    #     serializer = PayBillSerialzer(data=request.data)
+    #     print(serializer)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @csrf_exempt
