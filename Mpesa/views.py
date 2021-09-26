@@ -24,6 +24,7 @@ from rest_framework.generics import CreateAPIView
 from .models import PayBillPayment
 from Mpesa.serializers import PayBillSerialzer
 from rest_framework import status
+from rest_framework.generics import CreateAPIView
 
 
 class PaymentTranactionView(ListCreateAPIView):
@@ -235,7 +236,7 @@ class C2BValidation(APIView):
         data = request.data
         return Response(data)
 
-class C2BConfirmationApiView(APIView):
+class C2BConfirmationApiView(CreateAPIView):
     permission_classes = [AllowAny, ]
     queryset = PayBillPayment.objects.all()
     serializer_class = PayBillSerialzer
