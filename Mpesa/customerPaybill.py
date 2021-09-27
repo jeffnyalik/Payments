@@ -36,6 +36,9 @@ def registerUrl():
         "ResponseType": "Completed",
         "ConfirmationURL": "https://mwando.herokuapp.com/api/c2b-confirmation/",
         "ValidationURL":   "https://mwando.herokuapp.com/api/c2b-validation/",
+
+        # "ConfirmationURL": "localhost:8000/api/c2b-confirmation/",
+        # "ValidationURL":   "localhost:8000/api/c2b-validation/",
     }
 
     response = requests.post(api_url, json=request, headers=headers)
