@@ -58,4 +58,8 @@ class PayBillPayment(models.Model):
     FirstName = models.CharField(max_length=50)
     MiddleName  = models.CharField(max_length=50)
     LastName = models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.TransactionType
            

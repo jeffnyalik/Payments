@@ -60,7 +60,7 @@ def simulateTransaction():
     request = {
         "ShortCode": keys.shortcode,
         "CommandID": "CustomerPayBillOnline",
-        # "Amount": "10",
+        "Amount": "10",
         "Msisdn": keys.test_msisdn,
         "BillRefNumber": "myaccnumber",
     }
