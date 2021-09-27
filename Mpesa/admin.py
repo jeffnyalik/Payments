@@ -36,5 +36,5 @@ class PayBillModelAdmin(admin.ModelAdmin):
         'LastName',
     )
 
-    list_filter = ('BillRefNumber', 'OrgAccountBalance', 'BusinessShortCode', )
+    list_filter = ('BillRefNumber', 'OrgAccountBalance', 'BusinessShortCode', 'TransID', )
 admin.site.register(PayBillPayment, PayBillModelAdmin)
