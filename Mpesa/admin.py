@@ -8,7 +8,7 @@ admin.site.register(Wallet)
 
 
 class PayBillPaymentModelAdmin(admin.ModelAdmin):
-    fields = [
+    list_display = [
         'TransactionType',
         'TransAmount',
         'BusinessShortCode',
