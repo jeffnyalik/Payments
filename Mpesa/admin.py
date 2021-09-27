@@ -8,7 +8,8 @@ admin.site.register(Wallet)
 
 
 class PayBillPaymentModelAdmin(admin.ModelAdmin):
-    list_display = [
+
+    list_display = (
         'TransactionType',
         'TransAmount',
         'BusinessShortCode',
@@ -20,7 +21,10 @@ class PayBillPaymentModelAdmin(admin.ModelAdmin):
         'TransID', 
         'FirstName',
         'MiddleName', 
-        'LastName'
-    ]
+        'LastName',
+    )
+    
+    list_filter('TransID', 'BillRefNumber',)
+
 
 admin.site.register(PayBillPayment, PayBillPaymentModelAdmin)
