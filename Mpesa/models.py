@@ -54,8 +54,8 @@ class PayBillPayment(models.Model):
     InvoiceNumber  = models.CharField(max_length=50)
     OrgAccountBalance = models.CharField(max_length=50)
     ThirdPartyTransID  = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50)
-    firstName = models.CharField(max_length=50)
-    middleName  = models.CharField(max_length=50)
-    lastName = models.CharField(max_length=50)
+    MSISDN = models.CharField(max_length=50)
+    FirstName = models.CharField(max_length=50)
+    MiddleName  = models.CharField(max_length=50)
+    LastName = models.CharField(max_length=50)
            

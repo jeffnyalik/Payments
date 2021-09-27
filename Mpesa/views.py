@@ -243,8 +243,39 @@ class C2BConfirmationApiView(CreateAPIView):
 
 
     def create(self, request):
+        transaction_type = request.data['TransactionType']
+        transaction_id = request.data['TransID']
+        # trans_time = request.data['TransTime']
+        trans_amount = request.data['TransAmount']
+        business_short_code = request.data['BusinessShortCode']
+        bill_ref_number = request.data['BillRefNumber']
+        invoice_number = request.data['InvoiceNumber']
+        org_account_balance = request.data['OrgAccountBalance']
+        third_party_trans_id = request.data['ThirdPartyTransID']
+        msisdn_number = request.data['MSISDN']
+        first_name = request.data['FirstName']
+        middle_name = request.data['MiddleName']
+        last_name = request.data['LastName']
+
+        paybill_model = PayBillPayment.objects.create(
+            TransactionType=transaction_type,
+            TransID=transaction_id,
+            TransAmount=trans_amount,
+            BusinessShortCode=business_short_code,
+            BillRefNumber=bill_ref_number,
+            InvoiceNumber=invoice_number,
+            OrgAccountBalance=org_account_balance,
+            ThirdPartyTransID=third_party_trans_id,
+            MSISDN=msisdn_number,
+            FirstName=first_name,
+            MiddleName=middle_name,
+            LastName=last_name
+        )
+
+        paybill_model.save()
+      
         print(request.data, 'This request comes from the confirmation')
-        return Response({'ResultDesc': 0})
+        return Response({'ResultDesc': request.data})
 
 
     # @csrf_exempt
